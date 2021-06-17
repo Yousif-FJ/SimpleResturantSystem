@@ -35,17 +35,18 @@ namespace SimpleResturantSystem
         {
             foreach (var dish in viewModel.Dishes)
             {
-                var stackPanelMain = new StackPanel();
-                stackPanelMain.Margin = new Thickness(20, 20, 20, 20);
+                var stackPanelMain = new StackPanel()
+                {
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(20, 20, 20, 20)
+                };
 
                 var price = new TextBlock()
                 {
                     FontSize = 24,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
                     Text = dish.Price.ToString()
                 };
-                stackPanelMain.Children.Add(price);
 
                 var image = new Image()
                 {
@@ -53,7 +54,6 @@ namespace SimpleResturantSystem
                     Height = 200,
                     Width = 200
                 };
-                stackPanelMain.Children.Add(image);
 
                 var stackPanelButtons = new StackPanel()
                 {
@@ -61,43 +61,42 @@ namespace SimpleResturantSystem
                     Orientation = Orientation.Horizontal,
                     Margin = new Thickness(0, 10, 0, 10),
                 };
-                stackPanelMain.Children.Add(stackPanelButtons);
 
-                var plusButton = new Button()
-                {
-                    Content = "+",
-                    Width = 40,
-                    FontSize = 32,
-                    Margin = new Thickness(0, 0, 40, 0),
-                    DataContext = dish
-                };
+                var plusButton = CreateMinusPlusButton(dish, "+");
                 plusButton.Click += PlusButton_Click;
-                stackPanelButtons.Children.Add(plusButton);
 
                 var count = new TextBlock()
                 {
-                    FontSize = 24,
                     VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
+                    FontSize = 24,
                     Text = dish.Count.ToString(),
                     DataContext = dish
                 };
                 count.SetBinding(TextBlock.TextProperty, "Count");
-                stackPanelButtons.Children.Add(count);
 
-                var minusButton = new Button()
-                {
-                    Content = "-",
-                    Width = 40,
-                    FontSize = 32,
-                    Margin = new Thickness(40, 0, 0, 0),
-                    DataContext = dish
-                };
+                var minusButton = CreateMinusPlusButton(dish, "-");
                 minusButton.Click += MinusButton_Click;
-                stackPanelButtons.Children.Add(minusButton);
 
+                stackPanelMain.Children.Add(price);
+                stackPanelMain.Children.Add(image); 
+                stackPanelMain.Children.Add(stackPanelButtons);
+                stackPanelButtons.Children.Add(plusButton);
+                stackPanelButtons.Children.Add(count);
+                stackPanelButtons.Children.Add(minusButton);
                 DishesWrapPanel.Children.Add(stackPanelMain);
             }
+        }
+
+        private static Button CreateMinusPlusButton(Dish dish,string plusOrMinus )
+        {
+            return new Button()
+            {
+                Content = plusOrMinus,
+                Width = 40,
+                FontSize = 32,
+                Margin = new Thickness(20, 0, 20, 0),
+                DataContext = dish
+            };
         }
 
         private void PlusButton_Click(object sender, RoutedEventArgs e)
