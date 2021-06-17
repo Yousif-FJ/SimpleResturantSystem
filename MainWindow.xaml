@@ -6,29 +6,21 @@
         xmlns:local="clr-namespace:SimpleResturantSystem"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer x:Name="MyScrollViewer">
+
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    
+    <ScrollViewer x:Name="MyScrollViewer" VerticalScrollBarVisibility="Auto">
         <StackPanel HorizontalAlignment="Center">
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock FontSize="24" HorizontalAlignment="Center"> Total</TextBlock>
-                <TextBlock FontSize="24" HorizontalAlignment="Center">100</TextBlock>
+                <TextBlock Text="{Binding Path=Total,Mode=TwoWay}" FontSize="24" HorizontalAlignment="Center"></TextBlock>
                 <Button FontSize="24">Clear</Button>
             </StackPanel>
 
-            <WrapPanel MinWidth="100" Width="{Binding ElementName=MyScrollViewer, Path=Width}" HorizontalAlignment="Center">
-                <StackPanel Margin="20,20,20,20">
-                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
-                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
-                </StackPanel>
+            <WrapPanel Name="DishesWrapPanel" MinWidth="100" Width="{Binding ElementName=MyScrollViewer, Path=Width}" HorizontalAlignment="Center">
 
-                <StackPanel Margin="20,20,20,20">
-                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
-                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
-                </StackPanel>
-
-                <StackPanel Margin="20,20,20,20">
-                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
-                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
-                </StackPanel>
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

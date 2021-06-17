@@ -14,13 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resource\49524.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resource\49524.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <None Update="Resource\49524.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
