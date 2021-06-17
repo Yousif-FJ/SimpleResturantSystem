@@ -1,0 +1,35 @@
+﻿<Window x:Class="SimpleResturantSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleResturantSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer x:Name="MyScrollViewer">
+        <StackPanel HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock FontSize="24" HorizontalAlignment="Center"> Total</TextBlock>
+                <TextBlock FontSize="24" HorizontalAlignment="Center">100</TextBlock>
+                <Button FontSize="24">Clear</Button>
+            </StackPanel>
+
+            <WrapPanel MinWidth="100" Width="{Binding ElementName=MyScrollViewer, Path=Width}" HorizontalAlignment="Center">
+                <StackPanel Margin="20,20,20,20">
+                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
+                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="20,20,20,20">
+                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
+                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="20,20,20,20">
+                    <Image Source="/Resource/49524.jpg" Width="180" Height="180" ></Image>
+                    <TextBlock HorizontalAlignment="Center">hi</TextBlock>
+                </StackPanel>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
