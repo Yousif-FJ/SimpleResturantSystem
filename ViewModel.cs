@@ -26,6 +26,15 @@ namespace SimpleResturantSystem
             }
         }
 
+        public void Reset()
+        {
+            Total = 0;
+            foreach (var item in dishes)
+            {
+                item.Count = 0;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

@@ -55,10 +55,12 @@ namespace SimpleResturantSystem
                 };
                 stackPanelMain.Children.Add(image);
 
-                var stackPanelButtons = new StackPanel();
-                stackPanelButtons.HorizontalAlignment = HorizontalAlignment.Center;
-                stackPanelButtons.Orientation = Orientation.Horizontal;
-                stackPanelButtons.Margin = new Thickness(0, 10, 0, 10);
+                var stackPanelButtons = new StackPanel()
+                {
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Orientation = Orientation.Horizontal,
+                    Margin = new Thickness(0, 10, 0, 10),
+                };
                 stackPanelMain.Children.Add(stackPanelButtons);
 
                 var plusButton = new Button()
@@ -110,8 +112,16 @@ namespace SimpleResturantSystem
         {
             var button = (Button)sender;
             var dish = (Dish)button.DataContext;
-            --dish.Count;
-            viewModel.Total -= dish.Price;
+            if (viewModel.Total> 0)
+            {
+                --dish.Count;
+                viewModel.Total -= dish.Price;
+            }
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Reset();
         }
     }
 }
