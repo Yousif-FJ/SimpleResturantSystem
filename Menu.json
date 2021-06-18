@@ -1,32 +1,32 @@
 [
-    {
-        "Name": "Macaroni",
-        "PhotoUri": "C:\\Users\\Yousef\\source\\repos\\SimpleResturantSystem\\bin\\Release\\netcoreapp3.1\\\\Resource\\macaroni.jpg",
-        "Price": 5000,
-        "Count": 0
-    },
-    {
-        "Name": "Egg",
-        "PhotoUri": "C:\\Users\\Yousef\\source\\repos\\SimpleResturantSystem\\bin\\Release\\netcoreapp3.1\\\\Resource\\egg.jpg",
-        "Price": 3000,
-        "Count": 0
-    },
-    {
-        "Name": "Rice",
-        "PhotoUri": "C:\\Users\\Yousef\\source\\repos\\SimpleResturantSystem\\bin\\Release\\netcoreapp3.1\\\\Resource\\rice.jpg",
-        "Price": 7000,
-        "Count": 0
-    },
-    {
-        "Name": "Sandwich",
-        "PhotoUri": "C:\\Users\\Yousef\\source\\repos\\SimpleResturantSystem\\bin\\Release\\netcoreapp3.1\\\\Resource\\sandwich.jpg",
-        "Price": 4000,
-        "Count": 0
-    },
-    {
-        "Name": "pizza",
-        "PhotoUri": "C:\\Users\\Yousef\\source\\repos\\SimpleResturantSystem\\bin\\Release\\netcoreapp3.1\\\\Resource\\pizza.jpg",
-        "Price": 15000,
-        "Count": 0
-    }
+  {
+    "Name": "Macaroni",
+    "PhotoName": "macaroni.jpg",
+    "Price": 5000,
+    "Count": 0
+  },
+  {
+    "Name": "Egg",
+    "PhotoName": "egg.jpg",
+    "Price": 3000,
+    "Count": 0
+  },
+  {
+    "Name": "Rice",
+    "PhotoName": "rice.jpg",
+    "Price": 7000,
+    "Count": 0
+  },
+  {
+    "Name": "Sandwich",
+    "PhotoName": "sandwich.jpg",
+    "Price": 4000,
+    "Count": 0
+  },
+  {
+    "Name": "pizza",
+    "PhotoName": "pizza.jpg",
+    "Price": 15000,
+    "Count": 0
+  }
 ]

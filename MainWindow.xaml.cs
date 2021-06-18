@@ -48,7 +48,7 @@ namespace SimpleResturantSystem
                 {
                     var image = new Image()
                     {
-                        Source = new BitmapImage(new Uri(dish.PhotoUri)),
+                        Source = new BitmapImage(dish.GetPhotoUri()),
                         Height = 220,
                         Width = 220
                     };
