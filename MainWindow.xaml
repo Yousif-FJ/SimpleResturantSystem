@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleResturantSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="The best restaurant" Height="500" Width="800">
 
     <Window.DataContext>
         <local:ViewModel/>
@@ -16,7 +16,7 @@
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock FontSize="24" HorizontalAlignment="Center"> Total</TextBlock>
                 <TextBlock Text="{Binding Path=Total,Mode=TwoWay}" FontSize="24" HorizontalAlignment="Center"></TextBlock>
-                <Button FontSize="24" Click="ClearButton_Click">Clear</Button>
+                <Button FontSize="24" Click="ClearButton_Click" Width="75" Height="40">Clear</Button>
             </StackPanel>
 
             <WrapPanel Name="DishesWrapPanel" MinWidth="100" Width="{Binding ElementName=MyScrollViewer, Path=Width}" HorizontalAlignment="Center">

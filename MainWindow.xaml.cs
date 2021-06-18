@@ -1,39 +1,26 @@
 ﻿using SimpleResturantSystem.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SimpleResturantSystem
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public ViewModel viewModel { get; }
+        public ViewModel ViewModel { get; }
         public MainWindow()
         {
             InitializeComponent();
-            var dises =  CodeDishesGenerator.GetDishes();
-            viewModel = new ViewModel { Dishes = dises };
-            DataContext = viewModel;
+            var dises = CodeDishesGenerator.GetDishes();
+            ViewModel = new ViewModel { Dishes = dises };
+            DataContext = ViewModel;
             GenerateDishesElement();
         }
 
         private void GenerateDishesElement()
         {
-            foreach (var dish in viewModel.Dishes)
+            foreach (var dish in ViewModel.Dishes)
             {
                 var stackPanelMain = new StackPanel()
                 {
@@ -44,16 +31,26 @@ namespace SimpleResturantSystem
 
                 var price = new TextBlock()
                 {
+                    HorizontalAlignment = HorizontalAlignment.Center,
                     FontSize = 24,
                     Text = dish.Price.ToString()
                 };
 
-                var image = new Image()
+                try
                 {
-                    Source = new BitmapImage(new Uri(dish.PhotoUri)),
-                    Height = 200,
-                    Width = 200
-                };
+                    var image = new Image()
+                    {
+                        Source = new BitmapImage(new Uri(dish.PhotoUri)),
+                        Height = 220,
+                        Width = 220
+                    };
+                    stackPanelMain.Children.Add(image);
+                }
+                catch (Exception)
+                {
+                    var errorMessage = new TextBlock() { Text = "Picture is not found" };
+                    stackPanelMain.Children.Add(errorMessage);
+                }
 
                 var stackPanelButtons = new StackPanel()
                 {
@@ -78,7 +75,6 @@ namespace SimpleResturantSystem
                 minusButton.Click += MinusButton_Click;
 
                 stackPanelMain.Children.Add(price);
-                stackPanelMain.Children.Add(image); 
                 stackPanelMain.Children.Add(stackPanelButtons);
                 stackPanelButtons.Children.Add(plusButton);
                 stackPanelButtons.Children.Add(count);
@@ -87,7 +83,7 @@ namespace SimpleResturantSystem
             }
         }
 
-        private static Button CreateMinusPlusButton(Dish dish,string plusOrMinus )
+        private static Button CreateMinusPlusButton(Dish dish, string plusOrMinus)
         {
             return new Button()
             {
@@ -104,23 +100,23 @@ namespace SimpleResturantSystem
             var button = (Button)sender;
             var dish = (Dish)button.DataContext;
             ++dish.Count;
-            viewModel.Total +=dish.Price;    
+            ViewModel.Total += dish.Price;
         }
 
         private void MinusButton_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
             var dish = (Dish)button.DataContext;
-            if (viewModel.Total> 0)
+            if (ViewModel.Total > 0)
             {
                 --dish.Count;
-                viewModel.Total -= dish.Price;
+                ViewModel.Total -= dish.Price;
             }
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Reset();
+            ViewModel.Reset();
         }
     }
 }

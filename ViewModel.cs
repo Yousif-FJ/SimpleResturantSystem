@@ -1,10 +1,7 @@
 ﻿using SimpleResturantSystem.Model;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace SimpleResturantSystem
 {
@@ -12,16 +9,22 @@ namespace SimpleResturantSystem
     {
         private IList<Dish> dishes;
         private int total;
-        
-        public IList<Dish> Dishes { 
+
+        public IList<Dish> Dishes
+        {
             get => dishes;
-            set { dishes = value; 
+            set
+            {
+                dishes = value;
                 OnPropertyChanged();
-            } 
+            }
         }
-        public int Total { 
+        public int Total
+        {
             get => total;
-            set { total = value;
+            set
+            {
+                total = value;
                 OnPropertyChanged();
             }
         }

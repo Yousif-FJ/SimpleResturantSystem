@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace SimpleResturantSystem.Model
 {
@@ -17,10 +15,10 @@ namespace SimpleResturantSystem.Model
             Price = price;
         }
 
-        public string Name { get;}
+        public string Name { get; }
         public string PhotoUri { get; }
         public int Price { get; }
-        public int Count { get => count; set { count = value; OnPropertyChanged(); }  }
+        public int Count { get => count; set { count = value; OnPropertyChanged(); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
