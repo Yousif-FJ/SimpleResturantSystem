@@ -13,9 +13,17 @@ namespace SimpleResturantSystem
         {
             InitializeComponent();
             var dises = CodeDishesGenerator.GetDishes();
-            ViewModel = new ViewModel { Dishes = dises };
-            DataContext = ViewModel;
-            GenerateDishesElement();
+            if (dises is null)
+            {
+                var errorMessage = new TextBlock() { Text = "Menu not found" };
+                DishesWrapPanel.Children.Add(errorMessage);
+            }
+            else
+            {
+                ViewModel = new ViewModel { Dishes = dises };
+                DataContext = ViewModel;
+                GenerateDishesElement();
+            }
         }
 
         private void GenerateDishesElement()

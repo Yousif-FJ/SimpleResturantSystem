@@ -8,6 +8,11 @@ namespace SimpleResturantSystem.Model
     {
         private int count;
 
+        public Dish()
+        {
+
+        }
+
         public Dish(string name, string photoUrl, int price)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
@@ -15,9 +20,9 @@ namespace SimpleResturantSystem.Model
             Price = price;
         }
 
-        public string Name { get; }
-        public string PhotoUri { get; }
-        public int Price { get; }
+        public string Name { get; init; }
+        public string PhotoUri { get; init; }
+        public int Price { get; init; }
         public int Count { get => count; set { count = value; OnPropertyChanged(); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
