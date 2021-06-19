@@ -84,9 +84,9 @@ namespace SimpleResturantSystem
 
                 stackPanelMain.Children.Add(price);
                 stackPanelMain.Children.Add(stackPanelButtons);
-                stackPanelButtons.Children.Add(plusButton);
-                stackPanelButtons.Children.Add(count);
                 stackPanelButtons.Children.Add(minusButton);
+                stackPanelButtons.Children.Add(count);
+                stackPanelButtons.Children.Add(plusButton);
                 DishesWrapPanel.Children.Add(stackPanelMain);
             }
         }
@@ -115,7 +115,7 @@ namespace SimpleResturantSystem
         {
             var button = (Button)sender;
             var dish = (Dish)button.DataContext;
-            if (ViewModel.Total > 0)
+            if (dish.Count > 0)
             {
                 --dish.Count;
                 ViewModel.Total -= dish.Price;
